@@ -15,8 +15,17 @@ Position::Position(int id_position, int currency, int lst_ticker, int mouvement,
 
 Positions::Positions(){}
 
-Positions::add_position(Position::Position &pos){
+void Positions::add_position(Position & pos){
   datas.push_back(&pos);
+}
+
+std::string Positions::toString(){
+  std::ostringstream stream;
+   for (auto& elem : datas) {
+     stream << elem->toString() << "\n";
+   }
+   stream << '\n';
+   return stream.str();
 }
     
   
@@ -27,5 +36,6 @@ PYBIND11_MODULE(position, m) {
 	  .def("__repr__", &Position::toString);
 	py::class_<Positions>(m, "Positions")
 	  .def(py::init<>())
-	  .def("add_position", &Positions::add_position);
+	  .def("add_position", &Positions::add_position)
+	  .def("__repr__", &Positions::toString);
 }
