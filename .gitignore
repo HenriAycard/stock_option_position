@@ -1,0 +1,7 @@
+.vscode/*
+!.vscode/settings.json
+
+build/*
+dist
+Portfolio.egg-info
+cpp_library_position/__pycache__
