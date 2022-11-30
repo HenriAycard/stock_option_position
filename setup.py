@@ -64,7 +64,7 @@ class CMakeBuild(build_ext):
 
 setup(
     name='Portfolio',
-    version='0.0.2',
+    version='0.0.3',
     author='Henri AYCARD',
     author_email='henriaycard@hotmail.fr',
     description='A minimal active position project',
@@ -74,6 +74,7 @@ setup(
     url="https://github.com/HenriAycard/stock_option_position",
     zip_safe=False,
     install_requires=[
-        "numpy"
+        "numpy",
+        "pybind11"
     ]
 )

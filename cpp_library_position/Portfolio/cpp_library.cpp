@@ -1,7 +1,10 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <pybind11/chrono.h>
+
 #include "cpp_library/position.h"
+#include "cpp_library/positions.h"
+#include "cpp_library/portfolio.h"
 
 namespace py = pybind11;
 

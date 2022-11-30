@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include <list>
 #include <vector>
@@ -27,25 +28,4 @@ class Position {
   float unit_cost;
 };
 
-class Positions {
- public:
 
-  Positions();
-  void add_position(Position & pos);
-  std::string toString();
-  
-  std::vector<const Position*> datas;
-};
-
-class Portfolio {
-  public:
-
-    Portfolio(std::chrono::system_clock::time_point date);
-    void set_position(Positions & pos);
-    std::string toString();
-    std::string getDate();
-
-
-    Positions datas_positions;
-    const std::chrono::system_clock::time_point date;
-};
