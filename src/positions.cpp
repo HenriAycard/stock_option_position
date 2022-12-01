@@ -11,13 +11,13 @@
 
 #include "cpp_library/positions.h"
 
-Positions::Positions(){ }
+cpp_library::Positions::Positions(){ }
 
-void Positions::add_position(Position & pos){
+void cpp_library::Positions::add_position(Position & pos){
   datas.push_back(&pos);
 }
 
-std::string Positions::toString(){
+std::string cpp_library::Positions::toString(){
   std::ostringstream stream;
    for (auto& elem : datas) {
      stream << elem->toString() << "\n";

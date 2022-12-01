@@ -7,25 +7,24 @@
 #include <iomanip> 
 #include <time.h>
 
-class Position {
- public:
-  Position(int id_position, int currency, int lst_ticker, int mouvement, int portefolio, float cost_basis, int date_creation, int date_execution, float quantite, float tax, float unit_cost);
+namespace cpp_library{
 
-  std::string toString() const {
-    return "[" + std::to_string(id_position) + ", " + std::to_string(currency) + ", " + std::to_string(lst_ticker) + ", " + std::to_string(mouvement) + ", " + std::to_string(portefolio) + ", " + std::to_string(cost_basis) + ", " + std::to_string(date_creation) + ", " + std::to_string(date_execution) + ", " + std::to_string(quantite) + ", " + std::to_string(tax) + ", " + std::to_string(unit_cost) + "]";
-  }
-  
-  int id_position;
-  int currency;
-  int lst_ticker;
-  int mouvement;
-  int portefolio;
-  float cost_basis;
-  int date_creation;
-  int date_execution;
-  float quantite;
-  float tax;
-  float unit_cost;
-};
+  class Position {
+  public:
+    Position(int id_ticker, std::chrono::system_clock::time_point date_creation, std::chrono::system_clock::time_point date_execution, std::string way, float cost_basis, float quantite, float tax, float unit_cost);
 
+    std::string toString() const;
+    std::string getDate(std::chrono::system_clock::time_point date) const;
+    
+    int id_ticker;
+    std::chrono::system_clock::time_point date_creation;
+    std::chrono::system_clock::time_point date_execution;
+    std::string way;
+    float cost_basis;
+    float quantite;
+    float tax;
+    float unit_cost;
+  };
+
+}
 

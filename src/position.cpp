@@ -11,16 +11,30 @@
 
 #include "cpp_library/position.h"
 
-Position::Position(int id_position, int currency, int lst_ticker, int mouvement, int portefolio, float cost_basis, int date_creation, int date_execution, float quantite, float tax, float unit_cost)
-  : id_position(id_position)
-  , currency(currency)
-  , lst_ticker(lst_ticker)
-  , mouvement(mouvement)
-  , portefolio(portefolio)
-  , cost_basis(cost_basis)
+cpp_library::Position::Position(int id_ticker, std::chrono::system_clock::time_point date_creation, std::chrono::system_clock::time_point date_execution, std::string way, float cost_basis, float quantite, float tax, float unit_cost)
+  : id_ticker(id_ticker)
   , date_creation(date_creation)
   , date_execution(date_execution)
+  , way(way)
+  , cost_basis(cost_basis)  
   , quantite(quantite)
   , tax(tax)
   , unit_cost(unit_cost)
 { }
+
+std::string cpp_library::Position::toString() const {
+  return "[" 
+    + std::to_string(id_ticker) + ", " 
+    + getDate(date_creation) + ", " 
+    + getDate(date_execution) + ", " 
+    + way + ", " 
+    + std::to_string(cost_basis) + ", " 
+    + std::to_string(quantite) + ", " 
+    + std::to_string(tax) + ", " 
+    + std::to_string(unit_cost) + "]";
+}
+
+std::string cpp_library::Position::getDate(std::chrono::system_clock::time_point date) const {
+	const std::time_t time_now_t = std::chrono::system_clock::to_time_t(date);
+  return std::ctime(&time_now_t);
+}

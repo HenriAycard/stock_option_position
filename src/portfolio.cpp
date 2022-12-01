@@ -11,9 +11,9 @@
 
 #include "cpp_library/portfolio.h"
 
-Portfolio::Portfolio(std::chrono::system_clock::time_point date) : date(date) { }
+cpp_library::Portfolio::Portfolio(std::chrono::system_clock::time_point date) : date(date) { }
   
-std::string Portfolio::toString(){
+std::string cpp_library::Portfolio::toString(){
   std::ostringstream stream;
   stream << "Date:" << getDate() << "\n";
   stream << "Position:" << "\n";
@@ -22,12 +22,12 @@ std::string Portfolio::toString(){
 
 }
 
-std::string Portfolio::getDate() {
+std::string cpp_library::Portfolio::getDate() {
 	//std::chrono::time_point<std::chrono::system_clock> timepoint = date;
 	const std::time_t time_now_t = std::chrono::system_clock::to_time_t(date);
   return std::ctime(&time_now_t);
 }
 
-void Portfolio::set_position(Positions & pos){
+void cpp_library::Portfolio::set_position(Positions & pos){
   datas_positions = pos;
 }
