@@ -13,23 +13,30 @@ python3 setup.py install
 ## Usage
 
 ```python
-import Portfolio as ptf
-import datetime
+>>> import Portfolio as ptf
+>>> import datetime
 
 # Initialise some positions
-your_pos = ptf.Position(1,1,1158,2,1,195.972,20190208,20190208,14,0,13.998)
-another_pos = ptf.Position(2,1,1687,2,3,507.9205,20201028,20201028,145,0,3.5029)
+>>> your_pos = ptf.Position(1158, datetime.date(2019, 2, 8), datetime.date(2019, 2, 8), "BUY", 195.972, 14, 0, 13.998)
+>>> another_pos = ptf.Position(1158, datetime.date(2019, 9, 14), datetime.date(2019, 9, 14), "SELL.FIFO", 40.56, 4, 0, 10.14)
 
 # Add your positions
-positions_data = ptf.Positions()
-positions_data.add_position(your_pos)
-positions_data.add_position(another_pos)
+>>> positions_data = ptf.Positions()
+>>> positions_data.add_position(your_pos)
+>>> positions_data.add_position(another_pos)
 
 # Initialise an portfolio with a start date
-your_portfolio = ptf.Portfolio(datetime.datetime.now())
+>>> your_portfolio = ptf.Portfolio(datetime.datetime.now())
 
 # Add your positions to your portfolio
-your_portfolio.set_position(positions_data)
+>>> your_portfolio.set_position(positions_data)
+
+>>> print(your_portfolio)
+Date:Thu Dec  1 21:37:48 2022
+
+Position:
+[1158, Friday, February 08 2019, Friday, February 08 2019, BUY, 195.972000, 14.000000, 0.000000, 13.998000]
+[1158, Saturday, September 14 2019, Saturday, September 14 2019, SELL.FIFO, 40.560001, 4.000000, 0.000000, 10.140000]
 ```
 
 ## Contributing

@@ -35,6 +35,9 @@ std::string cpp_library::Position::toString() const {
 }
 
 std::string cpp_library::Position::getDate(std::chrono::system_clock::time_point date) const {
-	const std::time_t time_now_t = std::chrono::system_clock::to_time_t(date);
-  return std::ctime(&time_now_t);
+	char s[1000];
+  const std::time_t time_now_t = std::chrono::system_clock::to_time_t(date);
+  struct tm * p = localtime(&time_now_t);
+  strftime(s, 1000, "%A, %B %d %Y", p);
+  return s;
 }
