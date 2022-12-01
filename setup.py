@@ -64,7 +64,7 @@ class CMakeBuild(build_ext):
 
 setup(
     name='Portfolio',
-    version='0.0.3',
+    version='0.0.5',
     author='Henri AYCARD',
     author_email='henriaycard@hotmail.fr',
     description='A minimal active position project',
