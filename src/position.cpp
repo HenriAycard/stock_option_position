@@ -22,6 +22,17 @@ cpp_library::Position::Position(int id_ticker, std::chrono::system_clock::time_p
   , unit_cost(unit_cost)
 { }
 
+cpp_library::Position::Position(const cpp_library::Position*& pos)
+  : id_ticker(pos->id_ticker)
+  , date_creation(pos->date_creation)
+  , date_execution(pos->date_execution)
+  , way(pos->way)
+  , cost_basis(pos->cost_basis)  
+  , quantite(pos->quantite)
+  , tax(pos->tax)
+  , unit_cost(pos->unit_cost)
+{ }
+
 std::string cpp_library::Position::toString() const {
   return "[" 
     + std::to_string(id_ticker) + ", " 

@@ -12,7 +12,7 @@ namespace cpp_library{
   class Position {
   public:
     Position(int id_ticker, std::chrono::system_clock::time_point date_creation, std::chrono::system_clock::time_point date_execution, std::string way, float cost_basis, float quantite, float tax, float unit_cost);
-
+    Position(const cpp_library::Position*& pos);
     std::string toString() const;
     std::string getDate(std::chrono::system_clock::time_point date) const;
     

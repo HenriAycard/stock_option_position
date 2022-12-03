@@ -14,8 +14,13 @@
 cpp_library::Positions::Positions(){ }
 
 void cpp_library::Positions::add_position(Position & pos){
-  datas.push_back(&pos);
+  this->datas.push_back(&pos);
 }
+
+std::vector<cpp_library::Position*> cpp_library::Positions::getDatas(){
+  return this->datas;
+}
+
 
 std::string cpp_library::Positions::toString(){
   std::ostringstream stream;

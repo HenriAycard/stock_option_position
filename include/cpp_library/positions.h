@@ -9,8 +9,9 @@ namespace cpp_library{
     Positions();
     void add_position(Position & pos);
     std::string toString();
+    std::vector<Position*> getDatas();
     
-    std::vector<const Position*> datas;
+    std::vector<Position*> datas;
     };
 
 }
