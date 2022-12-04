@@ -15,9 +15,12 @@ namespace cpp_library{
         std::string getDateToString();
         std::chrono::system_clock::time_point getDate();
         std::vector<Position*> getPositionsData();
-        Portfolio getBeforeDate(std::chrono::system_clock::time_point datePortfolio);
-        Portfolio getAfterDate(std::chrono::system_clock::time_point datePortfolio);
-
+        Positions getBeforeDate(std::chrono::system_clock::time_point datePortfolio);
+        Positions getAfterDate(std::chrono::system_clock::time_point datePortfolio);
+        Positions getPositionsByWayAndTicker(int ticker, std::string wayName);
+        std::map<int, float> getPositionsByWay(std::string wayName);
+        std::string map_to_string();
+        Positions positionAdjust(Positions pos, int ticker, float quantity);
 
 
         Positions datas_positions;

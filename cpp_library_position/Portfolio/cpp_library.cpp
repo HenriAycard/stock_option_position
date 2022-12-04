@@ -21,5 +21,6 @@ PYBIND11_MODULE(Portfolio, m) {
 		.def(py::init<std::chrono::system_clock::time_point>())
 		.def("set_position", &cpp_library::Portfolio::set_position)
 		.def("setActivePortfolio", &cpp_library::Portfolio::setActivePortfolio)
+		.def("mapTest", &cpp_library::Portfolio::map_to_string)
 		.def("__repr__", &cpp_library::Portfolio::toString);
 }
